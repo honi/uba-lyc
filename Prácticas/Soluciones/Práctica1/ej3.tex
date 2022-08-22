@@ -2,7 +2,7 @@
 
 \subsection*{a)}
 
-Demostración por inducción estructural. Primero probamos que todas las funciones iniciales cumplen la propiedad.
+Para la ida $(\implies)$ hacemos una demostración por inducción estructural. Primero probamos que todas las funciones iniciales cumplen la propiedad.
 
 \begin{itemize}
     \item Función nula
@@ -79,6 +79,13 @@ Paso inductivo. Supongamos que existe $h_m \in \mathcal{C}_c$ generada a partir 
 \end{itemize}
 
 Por lo tanto, partiendo de una función $h_m \in \mathcal{C}_c$, vemos que al realizar una composición con alguna función $f \in \mathcal{C}_c$ obtenemos una función $h_{m+1} \in \mathcal{C}_c$ (pues $\mathcal{C}_c$ es cerrado por composición) que mantiene la propiedad enunciada.
+
+Para la vuelta $(\impliedby)$ mostramos que podemos construir cualquier $f(x_1, \dots, x_n) = k$ o $f(x_1, \dots, x_n) = x_i + k$ a partir de composición de las funciones iniciales, y por lo tanto $f \in \mathcal{C}_c$.
+
+\begin{itemize}
+    \item $f(x_1, \dots, x_n) = k = s^k(n(x_1, \dots, x_n))$
+    \item $f(x_1, \dots, x_n) = x_i + k = s^k(u^n_i(x_1, \dots, x_n))$
+\end{itemize}
 
 \subsection*{b)}
 
