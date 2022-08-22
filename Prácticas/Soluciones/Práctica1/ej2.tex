@@ -2,70 +2,70 @@
 
 \begin{itemize}
     \item
-    $f_1(x, y) = suma(x, y) = x + y$
+    $f_1(x, y) = \text{suma}(x, y) = x + y$
 
-    $suma(x, 0) = u^1_1(x) = x$
+    $\text{suma}(x, 0) = u^1_1(x) = x$
 
-    $suma(x, y + 1) = g(suma(x, y), x, y)$ donde $g(x_1, x_2, x_3) = s(u^3_1(x_1, x_2, x_3))$
+    $\text{suma}(x, y + 1) = g(\text{suma}(x, y), x, y)$ donde $g(x_1, x_2, x_3) = s(u^3_1(x_1, x_2, x_3))$
 
-    $\implies suma(x, y + 1) = s(suma(x, y))$
-
-    \item
-    $f_2(x, y) = prod(x, y) = x \cdot y$
-
-    $prod(x, 0) = n(x) = 0$
-
-    $prod(x, y + 1) = g(prod(x, y), x, y)$ donde $g(x_1, x_2, x_3) = suma(u^3_1(x_1, x_2, x_3), u^3_2(x_1, x_2, x_3))$
-
-    $\implies prod(x, y + 1) = suma(prod(x, y), x)$
+    $\implies \text{suma}(x, y + 1) = s(\text{suma}(x, y))$
 
     \item
-    $f_3(x, y) = pot(x, y) = x^y$
+    $f_2(x, y) = \text{prod}(x, y) = x \cdot y$
 
-    $pot(x, 0) = s(n(x)) = 1$
+    $\text{prod}(x, 0) = n(x) = 0$
 
-    $pot(x, y + 1) = g(pot(x, y), x, y)$ donde $g(x_1, x_2, x_3) = prod(u^3_1(x_1, x_2, x_3), u^3_2(x_1, x_2, x_3))$
+    $\text{prod}(x, y + 1) = g(\text{prod}(x, y), x, y)$ donde $g(x_1, x_2, x_3) = \text{suma}(u^3_1(x_1, x_2, x_3), u^3_2(x_1, x_2, x_3))$
 
-    $\implies pot(x, y + 1) = prod(pot(x, y), x)$
+    $\implies \text{prod}(x, y + 1) = \text{suma}(\text{prod}(x, y), x)$
+
+    \item
+    $f_3(x, y) = \text{pot}(x, y) = x^y$
+
+    $\text{pot}(x, 0) = s(n(x)) = 1$
+
+    $\text{pot}(x, y + 1) = g(\text{pot}(x, y), x, y)$ donde $g(x_1, x_2, x_3) = \text{prod}(u^3_1(x_1, x_2, x_3), u^3_2(x_1, x_2, x_3))$
+
+    $\implies \text{pot}(x, y + 1) = \text{prod}(\text{pot}(x, y), x)$
 
     \item
     $f_4(x, y) = \underbrace{x^{x^{.^{.^{x}}}}}_{\text{$y$ veces}}$
 
     $f_4(x, 0) = 1$
 
-    $f_4(x, y + 1) = g(f_4(x, y), x, y)$ donde $g(x_1, x_2, x_3) = pot(u^3_2(x_1, x_2, x_3), u^3_1(x_1, x_2, x_3))$
+    $f_4(x, y + 1) = g(f_4(x, y), x, y)$ donde $g(x_1, x_2, x_3) = \text{pot}(u^3_2(x_1, x_2, x_3), u^3_1(x_1, x_2, x_3))$
 
-    $\implies f_4(x, y + 1) = pot(x,  f_4(x, y))$
+    $\implies f_4(x, y + 1) = \text{pot}(x,  f_4(x, y))$
 
     Esta función a veces se la llama ``Power Tower'' (\href{https://en.wikipedia.org/wiki/Tetration#Terminology}{Wikipedia})
 
     \item
-    $g_1(x) = pred(x) = x \dotdiv 1$
+    $g_1(x) = \text{pred}(x) = x \dotdiv 1$
 
-    $pred(0) = n() = 0$ Permitimos utilizar la función nula $n$ sin parámetros.
+    $\text{pred}(0) = n() = 0$ Permitimos utilizar la función nula $n$ sin parámetros.
 
-    $pred(x + 1) = g(pred(x), x)$ donde $g(x_1, x_2) = u^2_2(x_1, x_2) = x_2$
+    $\text{pred}(x + 1) = g(\text{pred}(x), x)$ donde $g(x_1, x_2) = u^2_2(x_1, x_2) = x_2$
 
-    $\implies pred(x + 1) = x$
+    $\implies \text{pred}(x + 1) = x$
 
     \item
-    $g_2(x, y) = resta(x, y) = x \dotdiv y$
+    $g_2(x, y) = \text{resta}(x, y) = x \dotdiv y$
 
-    $resta(x, 0) = u^1_1(x) = x$
+    $\text{resta}(x, 0) = u^1_1(x) = x$
 
-    $resta(x, y + 1) = g(resta(x, y), x, y)$ donde $g(x_1, x_2, x_3) = pred(u^3_1(x_1, x_2, x_3))$
+    $\text{resta}(x, y + 1) = g(\text{resta}(x, y), x, y)$ donde $g(x_1, x_2, x_3) = \text{pred}(u^3_1(x_1, x_2, x_3))$
 
-    $\implies resta(x, y + 1) = pred(resta(x, y))$
+    $\implies \text{resta}(x, y + 1) = \text{pred}(\text{resta}(x, y))$
 
     \item
     $g_3(x, y) = \text{max}\{x, y\}$
 
-    $g_3(x, y) = suma(resta(x, y), y) = (x \dotdiv y) + y$
+    $g_3(x, y) = \text{suma}(\text{resta}(x, y), y) = (x \dotdiv y) + y$
 
     Si $x \geq y$, entonces $g_3$ simplemente resta y suma $y$ a un $x$ que es más grande, y en efecto terminamos con $x$ que era el máximo. En el otro caso $x < y$, al hacer la resta en $\N$ obtenemos $x \dotdiv y = 0$, luego al sumar $y$ obtenemos nuevamente $y$ que era el máximo.
 
     \item
     $g_4(x, y) = \text{min}\{x, y\}$
 
-    $g_4(x, y) = resta(suma(x, y), \text{max}\{x, y\}) = x + y - \text{max}\{x, y\}$
+    $g_4(x, y) = \text{resta}(\text{suma}(x, y), \text{max}\{x, y\}) = x + y - \text{max}\{x, y\}$
 \end{itemize}

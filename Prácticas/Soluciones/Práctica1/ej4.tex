@@ -1,3 +1,44 @@
 \section*{Ejercicio 4}
 
-Pendiente
+Cualquier clase PRC contiene las funciones iniciales y está cerrada por recursión primitiva y composición. Para mostrar que los predicados están en cualquier clase PRC, es suficiente con mostrar que se pueden construir a partir de las funciones iniciales utilizando recursión primitiva y/o composición.
+
+Para simplificar la escritura vamos a utilizar la función $\alpha(x)$ la cual es PR a partir de las iniciales y por lo tanto pertenece a cualquier clase PRC.
+
+$\alpha(x) = \begin{cases}
+    1 & \text{si } x = 0 \\
+    0 & \text{si no}
+\end{cases}$
+
+Además, podemos definir el predicado $\neg(x) = \alpha(x)$ que niega otro predicado.
+
+\begin{itemize}
+    \item[$\leq$)] $p(x, y) = \begin{cases}
+        1 & \text{si } x \leq y \\
+        0 & \text{si no}
+    \end{cases} = \alpha(x \dotdiv y)$
+
+    \item[$\geq$)] $p(x, y) = \begin{cases}
+        1 & \text{si } x \geq y \\
+        0 & \text{si no}
+    \end{cases} = \alpha(y \dotdiv x)$
+
+    \item[$=$)] $p(x, y) = \begin{cases}
+        1 & \text{si } x = y \\
+        0 & \text{si no}
+    \end{cases} = (x \leq y) \cdot (x \geq y)$
+
+    \item[$\neq$)] $p(x, y) = \begin{cases}
+        1 & \text{si } x \neq y \\
+        0 & \text{si no}
+    \end{cases} = \neg(x = y)$
+
+    \item[$<$)] $p(x, y) = \begin{cases}
+        1 & \text{si } x < y \\
+        0 & \text{si no}
+    \end{cases} = \neg(x \geq y)$
+
+    \item[$>$)] $p(x, y) = \begin{cases}
+        1 & \text{si } x > y \\
+        0 & \text{si no}
+    \end{cases} = \neg(x \leq y)$
+\end{itemize}
