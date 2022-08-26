@@ -1,6 +1,6 @@
 \section*{Ejercicio 5}
 
-Podemos escribir $h$ de la siguiente forma equivalente en donde se puede ver más claramente que es composición de funciones, en particular es composición de funciones en $\mathcal{C}$ pues todas las $f_i$ y $g$ están en $\mathcal{C}$. Como $\mathcal{C}$ es una clase PRC resulta que $h \in \mathcal{C}$.
+Podemos escribir $h$ de la siguiente forma equivalente en donde se puede ver más claramente que es composición de funciones, en particular es composición de funciones en $\C$ pues todas las $f_i$ y $g$ están en $\C$. Como $\C$ es una clase PRC resulta que $h \in \C$.
 
 $h(x_1, \dots, x_n) = \sum_{i=1}^k f_i(x_1, \dots, x_n) \cdot p_i(x_1, \dots, x_n) + g(x_1, \dots, x_n) \cdot \neg (\sum_{i=1}^k p_i(x_1, \dots, x_n))$
 
@@ -8,8 +8,8 @@ También podemos analizarlo por casos:
 
 \textbf{Caso 1}: $\exists! i: \N, 1 \leq i \leq k$ tal que $p_i(x_1, \dots, x_n)$ es verdadero.
 
-Observemos que si existe $i$, tiene que ser único pues todos los predicados $p_1, \dots, p_k$ son disjuntos. Luego, vale que $h(x_1, \dots, x_n) = f_i(x_1, \dots, x_n)$ por definición (el predicado $p_i(x_1, \dots, x_n)$ es verdadero y por lo tanto ``selecciona'' el caso de $f_i$ dentro de la definición de $h$). Como todas las $f_i \in \mathcal{C}$ por hipótesis $\implies h \in \mathcal{C}$.
+Observemos que si existe $i$, tiene que ser único pues todos los predicados $p_1, \dots, p_k$ son disjuntos. Luego, vale que $h(x_1, \dots, x_n) = f_i(x_1, \dots, x_n)$ por definición (el predicado $p_i(x_1, \dots, x_n)$ es verdadero y por lo tanto ``selecciona'' el caso de $f_i$ dentro de la definición de $h$). Como todas las $f_i \in \C$ por hipótesis $\implies h \in \C$.
 
 \textbf{Caso 2}: $\forall i: \N, 1 \leq i \leq k \implies p_i(x_1, \dots, x_n)$ es falso.
 
-Como no existe predicado $p_i$ que resulte verdadero, por definición $h$ ``selecciona'' el último caso ``si no'' y luego resulta $h(x_1, \dots, x_n) = g(x_1, \dots, x_n)$. Como $g \in \mathcal{C}$ por hipótesis $\implies h \in \mathcal{C}$.
+Como no existe predicado $p_i$ que resulte verdadero, por definición $h$ ``selecciona'' el último caso ``si no'' y luego resulta $h(x_1, \dots, x_n) = g(x_1, \dots, x_n)$. Como $g \in \C$ por hipótesis $\implies h \in \C$.

@@ -1,3 +1,89 @@
 \section*{Ejercicio 6}
 
-Pendiente
+Una clase de funciones $\C$ es PRC si contiene las funciones iniciales y está cerrada por composición y recursión primitiva.
+
+Podemos afirmar que una función cualquiera va a estar en \textbf{toda} clase PRC si podemos demostrar que pertenece a la clase PR. La clase PR es la clase PRC más ``chica'', son todas las funciones que se pueden construir a partir de las funciones iniciales mediante composición y/o recursión primitiva, y por lo tanto van a pertenecer a cualquier clase PRC.
+
+No obstante, una clase $\C$ puede ser PRC y a su vez contener funciones que no puedan ser construidas a partir de las iniciales. Esto sucede cuando la clase incluye explícitamente alguna función adicional que no pertenece a la clase PR. En esencia, para generar nuevas funciones dentro de esta clase $\C$, además de tener las 3 funciones iniciales, tendríamos esta función adicional.
+
+\subsection*{a)}
+
+$\text{par}(x) = \begin{cases}
+    1 & \text{si $x$ es par} \\
+    0 & \text{si no}
+\end{cases}$
+
+$\text{par}(0) = 1$
+
+$\text{par}(x + 1) = g(\text{par}(x), x)$ donde $g(x_1, x_2) = \neg u^2_1(x_1, x_2) \implies \text{par}(x + 1) = \neg \text{par}(x)$
+
+Definimos $\text{impar}(x) = \neg \text{par}(x)$ para usar en los siguientes items.
+
+\subsection*{b)}
+
+$f(x) = \text{div2}(x) = \lfloor x / 2 \rfloor$
+
+$\text{div2}(0) = 0$
+
+$\text{div2}(x + 1) = \begin{cases}
+    \text{div2}(x) & \text{si } \text{par}(x) \\
+    s(\text{div2}(x)) & \text{si no}
+\end{cases} = \text{div2}(x) \cdot \text{par}(x) + s(\text{div2}(x)) \cdot \text{impar}(x)$
+
+\subsection*{c)}
+
+$h(x_1, \dots, x_n, t) = \begin{cases}
+    f(x_1, \dots, x_n) & \text{si } t = 0 \\
+    g_1(x_1, \dots, x_n, k, h(x_1, \dots, x_n, t - 1)) & \text{si } t = 2 \cdot k + 1 \\
+    g_2(x_1, \dots, x_n, k, h(x_1, \dots, x_n, t - 1)) & \text{si } t = 2 \cdot k + 2
+\end{cases}$
+
+Planteamos el caso base del esquema de recursión primitiva para $h$. Notar que si $t = 0$ siempre entramos en el primer caso de $h$ pues no existe $k \in \N$ para satisfacer los otros 2 casos cuando $t = 0$.
+
+$h(x_1, \dots, x_n, 0) = f(x_1, \dots, x_n)$
+
+Para el caso $t > 0$ primero reescribimos la función por casos colocando $t + 1$ en donde antes teníamos $t$ para poder ajustarnos al esquema de recursión primitiva.
+
+$
+\begin{aligned}
+h(x_1, \dots, x_n, t + 1)
+& = \begin{cases}
+    g_1(x_1, \dots, x_n, k, h(x_1, \dots, x_n, t + 1 - 1)) & \text{si } t + 1 = 2 \cdot k + 1 \\
+    g_2(x_1, \dots, x_n, k, h(x_1, \dots, x_n, t + 1 - 1)) & \text{si } t + 1 = 2 \cdot k + 2
+\end{cases} \\
+& = \begin{cases}
+    g_1(x_1, \dots, x_n, k, h(x_1, \dots, x_n, t)) & \text{si } t = 2 \cdot k \\
+    g_2(x_1, \dots, x_n, k, h(x_1, \dots, x_n, t)) & \text{si } t = 2 \cdot k + 1
+\end{cases}
+\end{aligned}
+$
+
+Ahora necesitamos despejar $k$ en función de $t$.
+
+$t = 2 \cdot k \implies k = \lfloor t / 2 \rfloor = \text{div2}(t)$
+
+$t = 2 \cdot k + 1 \implies k = \lfloor (t - 1) / 2 \rfloor = \text{div2}(t - 1) = \text{div2}(t)$ pues $t$ es impar y div2 redondea hacia abajo
+
+Reescribimos $h$ eliminando por completo la $k$.
+
+$h(x_1, \dots, x_n, t + 1) = \begin{cases}
+    g_1(x_1, \dots, x_n, \text{div2}(t), h(x_1, \dots, x_n, t)) & \text{si } \text{par}(t) \\
+    g_2(x_1, \dots, x_n, \text{div2}(t), h(x_1, \dots, x_n, t)) & \text{si } \text{impar}(t)
+\end{cases}$
+
+También podemos escribir $h$ como suma de cada caso por su predicado.
+
+$h(x_1, \dots, x_n, t + 1)
+= g_1(x_1, \dots, x_n, \text{div2}(t), h(x_1, \dots, x_n, t)) \cdot \text{par}(t)
++ g_2(x_1, \dots, x_n, \text{div2}(t), h(x_1, \dots, x_n, t)) \cdot \text{impar}(t)$
+
+\textbf{Conclusión}
+
+\begin{itemize}
+    \item $h$ sigue el esquema de recursión primitiva.
+    \item $h$ compone funciones que están en $\C$ (puntualmente $f$, $g_1$ y $g_2$).
+    \item $h$ compone funciones que están en toda clase PRC (puntualmente div2, par, impar).
+    \item $\C$ es una clase PRC por el enunciado, entonces contiene a las funciones div2, par, impar.
+\end{itemize}
+
+Por lo tanto cualquier $h$ que cumpla con este esquema pertenece a $\C$.
