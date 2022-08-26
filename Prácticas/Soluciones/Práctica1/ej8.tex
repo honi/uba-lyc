@@ -1,3 +1,19 @@
 \section*{Ejercicio 8}
 
-Pendiente
+\begin{itemize}
+    \item $\text{cociente}(x, y) = \text{min}_{t \leq x} \; ((t \cdot y + r = x) \land (0 \leq r < y))$
+
+    \item $\text{resto}(x, y) = x - \text{cociente}(x, y) \cdot y$
+
+    \item $\text{divide}(x, y) = \text{resto}(x, y) = 0$
+
+    \item $\text{primo}(x) = \neg (\exists t)_{1 < t < x}\; \text{divide}(x, t)$
+
+    \item $\text{raíz}(x, y) = \text{min}_{t \leq y} \; (t + 1)^x > y$
+
+    \item $\text{nprimo}(0) = 2$
+
+    $\text{nprimo}(n + 1) = \text{min}_{t \leq c} \; (\text{primo}(t) \land t > \text{nprimo}(n))$
+
+    Donde $c = \text{nprimo}(n)! + 1$ funciona como cota porque $\text{nprimo}(n + 1) \leq \text{nprimo}(n)! + 1$ (justificado en la teórica).
+\end{itemize}
