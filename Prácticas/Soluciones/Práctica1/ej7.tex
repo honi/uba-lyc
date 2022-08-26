@@ -1,3 +1,31 @@
 \section*{Ejercicio 7}
 
-Pendiente
+Usamos la notación $\x = x_1, \dots, x_n$ para simplificar la escritura.
+
+\begin{itemize}
+    \item $\text{cantidad}_p(\x, y, z) = \sum_{t=0}^z p(\x, t) \cdot (t \geq y) = \sum_{t=y}^z p(\x, t)$
+
+    \item $\text{todos}_p(\x, y, z) = \text{cantidad}_p(\x, y, z) = z - y$
+
+    \item $\text{alguno}_p(\x, y, z) = \text{cantidad}_p(\x, y, z) > 0$
+
+    \item Recordemos la definición de la minimización acotada.
+
+    $\text{min}_{t \leq y} \; p(\x, t) = \sum_{u=0}^y \prod_{t=0}^u \alpha(p(\x, t))$
+
+    Usando la minimización acotada definir $\text{mínimo}_p$ es trivial.
+
+    $\text{mínimo}_p(\x, y, z) = \text{min}_{t \leq z} \; (p(\x, t) \cdot (t \geq y)) = \text{min}_{y \leq t \leq z} \; p(\x, t)$
+
+    \item Una opción es reutilizar la misma idea que la minimización acotada, pero buscando el ``mínimo'' partiendo desde el $t$ más grande yendo hacia la cota inferior. En este contexto, el mínimo es en realidad ``el más cercano a la cota superior'', o sea, el máximo, que es lo queremos.
+
+    $\text{máximo}_p(\x, y, z) = z - \sum_{u=y}^z \prod_{t=0}^u \alpha(p(\x, z - t))$
+
+    Otra opción es definir el máximo utilizando el mínimo, agregando una condición adicional al predicado: que no exista ningún otro $t' > t$ para el cual también valga el predicado $p$. En esencia, buscamos primero el mínimo real, y si existe un $t$ más grande para el cual también vale el predicado, tenemos que seguir buscando el próximo mínimo a partir del encontrado, y así hasta eventualmente llegar al máximo.
+
+    $\text{máximo}_p(\x, y, z) = \text{mínimo}_q(\x, y, z)$ donde $q(\x, t) = p(\x, t) \cdot \neg (\exists t')_{t < t' \leq z} \; p(\x, t')$
+
+    \item Sea $m = \text{mínimo}_p(\x, y, z)$, $M = \text{máximo}_p(\x, y, z)$
+
+    $\text{único}_p(\x, y, z) = (m = M) \cdot m + (m \neq M) \cdot (z + 1)$
+\end{itemize}
