@@ -1,3 +1,24 @@
 \section*{Ejercicio 10}
 
-Pendiente
+Para demostrar que la función de Fibonacci está en toda clase PRC vamos a mostrar que podemos definirla como una función primitiva recursiva.
+
+Sea $f: \N \to \N$ la función de Fibonacci tal que:
+
+\begin{itemize}
+    \item $f(0) = 0$
+    \item $f(1) = 1$
+    \item $f(n + 2) = f(n + 1) + f(n)$
+\end{itemize}
+
+Esta definición difiere del esquema de recursión primitiva por 2 razones: tenemos 2 casos bases y necesitamos mirar los 2 resultados anteriores en el paso recursivo.
+
+¿Acaso no tenemos ya una forma de codificar 2 valores como un único número? Intentemos definir Fibonacci con una nueva función $g$ utilizando la codificación de pares. Para cualquier $n \in \N$, $g(n)$ nos devuelve un par codificado con los términos $n$ y $n+1$ de Fibonacci.
+
+\begin{itemize}
+    \item $g(0) = \tupla{0}{1}$
+    \item $g(n + 1) = \tupla{r(g(n))}{l(g(n)) + r(g(n))}$
+\end{itemize}
+
+La función $g$ es P.R. pues sigue el esquema de recursión primitiva y es composición de funciones P.R.
+
+Finalmente, podemos redefinir $f$ en función de $g$ de la siguiente forma: $f(n) = l(g(n))$. Por lo tanto, $f$ es P.R. y consecuentemente pertenece a cualquier clase PRC.
