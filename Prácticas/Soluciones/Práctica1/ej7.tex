@@ -5,11 +5,11 @@ Usamos la notación $\x = x_1, \dots, x_n$ para simplificar la escritura. Ya vim
 \begin{itemize}
     \item $\text{cantidad}_p(\x, y, z) = \sum_{t=0}^z p(\x, t) \cdot (t \geq y) = \sum_{t=y}^z p(\x, t)$
 
-    \item $\text{todos}_p(\x, y, z) = (\forall t)_{t \leq z} \; (p(\x, t) \cdot (t \geq y) + (t < y)) = (\forall t)_{y \leq t \leq z} \; p(\x, t)$
+    \item $\text{todos}_p(\x, y, z) = (\forall t)_{\leq z} \; (p(\x, t) \cdot (t \geq y) + (t < y)) = (\forall t)_{y \leq t \leq z} \; p(\x, t)$
 
     Otra forma: $\text{todos}_p(\x, y, z) = \text{cantidad}_p(\x, y, z) = z - y$
 
-    \item $\text{alguno}_p(\x, y, z) = (\exists t)_{t \leq z} \; (p(\x, t) \cdot (t \geq y) + (t < y)) = (\exists t)_{y \leq t \leq z} \; p(\x, t)$
+    \item $\text{alguno}_p(\x, y, z) = (\exists t)_{\leq z} \; (p(\x, t) \cdot (t \geq y) + (t < y)) = (\exists t)_{y \leq t \leq z} \; p(\x, t)$
 
     Otra forma: $\text{alguno}_p(\x, y, z) = \text{cantidad}_p(\x, y, z) > 0$
 

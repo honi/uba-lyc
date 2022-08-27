@@ -1,3 +1,23 @@
 \section*{Ejercicio 9}
 
-Pendiente
+Sea $\tupla{x}{y} = 2^x (2y + 1) \dotdiv 1$ la codificación de pares de naturales. Esta función es P.R. pues es una composición de otras funciones P.R. como la potencia, multiplicación y suma.
+
+Esta codificación es una biyección, pues hay una única solución $(x, y)$ a la ecuación $z = \tupla{x}{y}$. Notemos que para garantizar esto es necesario restar $1$ en la codificación, pues sino el par $\tupla{0}{0} = 1$ y luego sucedería que $\tupla{x}{y} \geq 1 \; \forall x,y \in \N$.
+
+$z = \tupla{x}{y} = 2^x (2y + 1) \dotdiv 1 \iff z + 1 = 2^x (2y + 1)$
+
+Observemos que $2^x$ es siempre un número par o $1$ (en el caso $x = 0$), mientras que $2y + 1$ es siempre un número impar. Por lo tanto, dado $z$ podemos volver a obtener el par $(x, y)$ realizando 2 pasos.
+
+\begin{enumerate}
+    \item $x = \text{max}_{x \leq z} \; 2^x | (z + 1)$
+    \item $y = (\frac{z + 1}{2^x} - 1) / 2$
+\end{enumerate}
+
+Definimos los observadores $l$ (left) y $r$ (right) del par $z = \tupla{x}{y}$ tal que:
+
+\begin{itemize}
+    \item $l(z) = \text{min}_{x \leq z} \; ((\exists y)_{\leq z} \; z = \tupla{x}{y})$
+    \item $r(z) = \text{min}_{y \leq z} \; ((\exists x)_{\leq z} \; z = \tupla{x}{y})$
+\end{itemize}
+
+Como la codificación de pares y los observadores son P.R. podemos concluir que toda clase PRC los contiene.
