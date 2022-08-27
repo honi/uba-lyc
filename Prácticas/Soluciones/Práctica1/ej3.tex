@@ -2,7 +2,7 @@
 
 \subsection*{a)}
 
-Para la ida $(\implies)$ hacemos una demostración por inducción estructural. Primero probamos que todas las funciones iniciales cumplen la propiedad.
+Para la ida $(\implies)$ hacemos una demostración por inducción estructural. Primero probamos que todas las funciones iniciales (que están en $\C_c$) cumplen la propiedad.
 
 \begin{itemize}
     \item Función nula
@@ -18,72 +18,29 @@ Para la ida $(\implies)$ hacemos una demostración por inducción estructural. P
     $f(x_1, \dots, x_n) = u^n_i(x_1, \dots, x_n) = x_i$. La función proyector cae en el caso $f(x_1, \dots, x_n) = x_i + k$ donde $k = 0$.
 \end{itemize}
 
-Paso inductivo. Supongamos que existe $h_m \in \C_c$ generada a partir de $m$ composiciones, tal que $h_m(x_1, \dots, x_n) = k$ o bien $h_m(x_1, \dots, x_n) = x_i + k$. Queremos ver si cualquier $h_{m+1} \in \C_c$ también cumple la propiedad. Para generar $h_{m+1}$ componemos $h_m$ con alguna función $f \in \C_c$.
+Paso inductivo. Supongamos que existen $f, g_1, \dots, g_m \in \C_c$ que cumplen con la propiedad. Como la única operación en $\C_c$ es la composición, esa es la única forma de generar nuevas funciones. Probemos entonces que la función generada por composición $h(x_1, \dots, x_n) = f(g_1(x_1, \dots, x_n), \dots, g_m(x_1, \dots, x_n)) \in \C_c$ también cumple con la propiedad.
+
+Miremos todos los posibles casos para $f$ que ya sabemos que cumple con la propiedad por hipótesis inductiva.
 
 \begin{itemize}
-    \item Caso $f(x) = n(x)$
+    \item $f(g_1(x_1, \dots, x_n), \dots, g_m(x_1, \dots, x_n)) = k \implies h(x_1, \dots, x_n) = k$
 
-    $h_{m+1} = f(h_m(x_1, \dots, x_n)) = n(h_m(x_1, \dots, x_n)) = 0$.
+    \item $f(g_1(x_1, \dots, x_n), \dots, g_m(x_1, \dots, x_n)) = g_j(x_1, \dots, x_n) + k_0$ para algún $j \mid 1 \leq j \leq m$.
 
-    No importa la forma de $h_m$ pues $n(x) = 0$ para cualquier $x$.
-
-    \item Caso $f(x) = s(x)$
+    Por hipótesis inductiva, $g_j \in \C_c$ cumple con la propiedad. Por lo tanto $g_j(x_1, \dots, x_n) = k_j$ o bien $g_j(x_1, \dots, x_n) = x_i + k_j$ para algún $i \mid 1 \leq i \leq n$. Observar que necesitamos identificar $k_j$ con un subíndice ya que cada $g_j$ puede tener constantes arbitrarias. Además, necesitamos usar un subíndice distinto para el $x_i$ ya que sino estaríamos limitando qué parámetro de entrada puede usar cada $g_j$.
 
     \begin{itemize}
-        \item Caso $h_m(x_1, \dots, x_n) = x_i + q$
-
-        $h_{m+1} = f(h_m(x_1, \dots, x_n)) = s(x_i + q) = x_i + q + 1 = x_i + k$ donde $k = q + 1$.
-
-        \item Caso $h_m(x_1, \dots, x_n) = q$
-
-        $h_{m+1} = f(h_m(x_1, \dots, x_n)) = s(q) = q + 1 = k$ donde $k = q + 1$.
-    \end{itemize}
-
-    \item Caso $f(x) = u^n_i(x)$
-
-    Como $h_m: \N^n \to \N$, necesariamente $f(x) = u^1_1(x)$ para poder componer $f \circ h_m$.
-
-    \begin{itemize}
-        \item Caso $h_m(x_1, \dots, x_n) = x_i + k$
-
-        $h_{m+1} = f(h_m(x_1, \dots, x_n)) = u^1_1(x_i + k) = x_i + k$.
-
-        \item Caso $h_m(x_1, \dots, x_n) = k$
-
-        $h_{m+1} = f(h_m(x_1, \dots, x_n)) = u^1_1(k) = k$.
-    \end{itemize}
-
-    \item Caso $f(x) = x + r$
-
-    \begin{itemize}
-        \item Caso $h_m(x_1, \dots, x_n) = x_i + q$
-
-        $h_{m+1} = f(h_m(x_1, \dots, x_n)) = x_i + q + r = x_i + k$ donde $k = q + r$.
-
-        \item Caso $h_m(x_1, \dots, x_n) = q$
-
-        $h_{m+1} = f(h_m(x_1, \dots, x_n)) = q + r = k$ donde $k = q + r$.
-    \end{itemize}
-
-    \item Caso $f(x) = k$
-
-    \begin{itemize}
-        \item Caso $h_m(x_1, \dots, x_n) = x_i + q$
-
-        $h_{m+1} = f(h_m(x_1, \dots, x_n)) = f(x_i + q) = k$.
-
-        \item Caso $h_m(x_1, \dots, x_n) = q$
-
-        $h_{m+1} = f(h_m(x_1, \dots, x_n)) = f(q) = k$.
+        \item $g_j(x_1, \dots, x_n) = k_j \implies h(x_1, \dots, x_n) = k_j + k_0 = k$
+        \item $g_j(x_1, \dots, x_n) = x_i + k_j \implies h(x_1, \dots, x_n) = x_i + k_j + k_0 = x_i + k$
     \end{itemize}
 \end{itemize}
 
-Por lo tanto, partiendo de una función $h_m \in \C_c$, vemos que al realizar una composición con alguna función $f \in \C_c$ obtenemos una función $h_{m+1} \in \C_c$ (pues $\C_c$ es cerrado por composición) que mantiene la propiedad enunciada.
+Probamos entonces que cualquier función $h(x_1, \dots, x_n) = f(g_1(x_1, \dots, x_n), \dots, g_m(x_1, \dots, x_n)) \in \C_c$ cumple con la propiedad. Es decir, vale que si $h \in \C_c \implies h(x_1, \dots, x_n) = k$ o bien $h(x_1, \dots, x_n) = x_i + k$.
 
 Para la vuelta $(\impliedby)$ mostramos que podemos construir cualquier $f(x_1, \dots, x_n) = k$ o $f(x_1, \dots, x_n) = x_i + k$ a partir de composición de las funciones iniciales, y por lo tanto $f \in \C_c$.
 
 \begin{itemize}
-    \item $f(x_1, \dots, x_n) = k = s^k(n(x_1, \dots, x_n))$
+    \item $f(x_1, \dots, x_n) = k = s^k(n(x_i))$ para cualquier $i$
     \item $f(x_1, \dots, x_n) = x_i + k = s^k(u^n_i(x_1, \dots, x_n))$
 \end{itemize}
 
