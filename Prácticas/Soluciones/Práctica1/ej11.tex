@@ -15,7 +15,7 @@ H(\x, t + 1)
 & = \tupla{g_1(l(H(\x, t)), r(H(\x, t)), \x, t)}{g_2(r(H(\x, t)), l(H(\x, t)), \x, t)}
 \end{aligned}$
 
-$H$ sigue el esquema de recursión primitiva y es composiciones de funciones P.R. y de $f_1, f_2, g_1, g_2 \in \C \implies H \in \C$.
+$H$ sigue el esquema de recursión primitiva y es composiciones de funciones p.r. y de $f_1, f_2, g_1, g_2 \in \C \implies H \in \C$.
 
 Como $H \in \C$ está codificando a $h_1$ y $h_2$ de la siguiente forma:
 
@@ -24,23 +24,3 @@ $h_1(\x, t) = l(H(\x, t))$
 $h_2(\x, t) = r(H(\x, t))$
 
 $\implies h_1, h_2 \in \C$.
-
-\textbf{Otra forma}
-
-$H(\x, 0) = \tupla{f_1(\x)}{f_2(\x)}$
-
-$H(\x, t + 1) = \tupla{\tilde{g}_1(H(\x, t), \x, t)}{\tilde{g}_2(H(\x, t), \x, t)}$
-
-$\tilde{g}_1(h, \x, t) = g_1(l(h), r(h), \x, t)$
-
-$\tilde{g}_2(h, \x, t) = g_2(r(h), l(h), \x, t)$
-
-Notemos que $\tilde{g}_1$ y $\tilde{g}_2 \in \C$ pues componen a las $g_1$ y $g_2$ que por el enunciado están en $\C$. Por lo tanto, $H \in \C$ pues sigue el esquema de recursión primitiva componiendo funciones que están en $\C$.
-
-Finalmente veamos que $H$ está codificando a $h_1$ y $h_2$:
-
-$h_1(\x, t) = l(H(\x, t))$
-
-$h_2(\x, t) = r(H(\x, t))$
-
-Como $H \in \C \implies h_1, h_2 \in \C$.
