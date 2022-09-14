@@ -1,0 +1,43 @@
+$f_2(x, y) = \begin{cases}
+    1 & \text{si } \Phi_x^{(1)}(y) = 0 \\
+    0 & \text{si no}
+\end{cases}$
+
+Suponemos que $f_2$ es computable, y por lo tanto existe un programa $P_2$ que la computa.
+
+Definimos $g(x) = f_2(x, x) = \begin{cases}
+    1 & \text{si } \Phi_x^{(1)}(x) = 0 \\
+    0 & \text{si no}
+\end{cases}$
+
+Sea $Q$ un programa que computa $g$:
+
+\begin{lstlisting}
+    $X_2 \gets X_1$ (macro computable)
+    $P_2$
+\end{lstlisting}
+
+Como asumimos que $f_2$ es computable, $g$ también lo es pues $f_2$ computable $\implies g$ computable.
+
+Definimos ahora un programa $Q'$ tal que $\Psi_{Q'}(x) = \begin{cases}
+    0 & \text{si } \Phi_x^{(1)}(x) > 0 \lor \Phi_x^{(1)}(x) \uparrow \\
+    \uparrow & \text{si no}
+\end{cases}$
+
+\begin{lstlisting}
+    $Q$
+[R] IF $Y$ $\neq$ 0 GOTO R
+\end{lstlisting}
+
+Veamos que $\forall x: \Phi_{\#(Q')}^{(1)}(x) \downarrow \iff \Psi_{Q'}(x) \downarrow \iff \Psi_Q(x) = 0 \iff g(x) = 0 \iff \Phi_x^{(1)}(x) > 0 \lor \Phi_x^{(1)}(x) \uparrow$
+
+Sea $e = \#(Q')$ y tomando $x = e$ vemos que: $\Phi_e^{(1)}(e) \downarrow \iff \Phi_e^{(1)}(e) > 0 \lor \Phi_e^{(1)}(e) \uparrow$
+
+Analizamos cada caso:
+
+\begin{itemize}
+    \item $\Phi_e^{(1)}(e) \downarrow \iff \Phi_e^{(1)}(e) > 0$ Absurdo pues $\Phi_e^{(1)}(e) \downarrow \iff \Phi_e^{(1)}(e) = 0$ (por definición)
+    \item $\Phi_e^{(1)}(e) \downarrow \iff \Phi_e^{(1)}(e) \uparrow$ Absurdo
+\end{itemize}
+
+Llegamos al absurdo por suponer que $f_2$ era computable. Por lo tanto, $f_2$ no es computable.

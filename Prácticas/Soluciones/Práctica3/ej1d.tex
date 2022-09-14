@@ -1,0 +1,29 @@
+$f_4(x) = \begin{cases}
+    1 & \text{si } \Phi_x^{(1)}(x) \downarrow \land \; \Phi_x^{(1)}(x) \neq x \\
+    0 & \text{si no}
+\end{cases}$
+
+Suponemos que $f_4$ es computable, y por lo tanto existe un programa $P_4$ que la computa.
+
+Definimos ahora un programa $Q$ tal que $\Psi_{Q}(x) = \begin{cases}
+    0 & \text{si } \Phi_x^{(1)}(x) \uparrow \lor \; \Phi_x^{(1)}(x) = x \\
+    \uparrow & \text{si no}
+\end{cases}$
+
+\begin{lstlisting}
+    $P_4$
+[R] IF $Y$ $\neq$ 0 GOTO R
+\end{lstlisting}
+
+Veamos que $\forall x: \Phi_{\#(Q)}^{(1)}(x) \downarrow \iff \Psi_{P_4}(x) = 0 \iff f_4(x) = 0 \iff \Phi_x^{(1)}(x) \uparrow \lor \; \Phi_x^{(1)}(x) = x$
+
+Sea $e = \#(Q)$ y tomando $x = e$ vemos que: $\Phi_e^{(1)}(e) \downarrow \iff \Phi_e^{(1)}(e) \uparrow \lor \; \Phi_e^{(1)}(e) = e$
+
+Analizamos cada caso:
+
+\begin{itemize}
+    \item $\Phi_e^{(1)}(e) \downarrow \iff \Phi_e^{(1)}(e) = e$ Absurdo pues $\Phi_e^{(1)}(e) \downarrow \iff \Phi_e^{(1)}(e) = 0 \neq e$ pues $Q$ no es el programa vacío
+    \item $\Phi_e^{(1)}(e) \downarrow \iff \Phi_e^{(1)}(e) \uparrow$ Absurdo
+\end{itemize}
+
+Llegamos al absurdo por suponer que $f_4$ era computable. Por lo tanto, $f_4$ no es computable.
